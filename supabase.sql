@@ -19,4 +19,7 @@ create policy "anon can insert messages"
   to anon
   with check (true);
 
+-- New Supabase projects don't auto-grant table access to API roles, so grant INSERT only.
+grant insert on public.contact_messages to anon;
+
 -- You read the messages in Supabase → Table Editor (the dashboard bypasses RLS).
